@@ -1,11 +1,16 @@
 import React from 'react'
 
 function Total(props) {
-const exercises1 = props.curso.parts[0].exercises;
-const exercises2 = props.curso.parts[1].exercises;
-const exercises3 = props.curso.parts[2].exercises;
+  const partes = props.curso.parts
+  let  total = partes.reduce((suma,parte)=>{
+ return suma + parte.exercises
+},0) 
+
+
   return (
-    <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+    <div>
+        <p><strong>total of {total} exercises</strong></p>
+    </div>
   )
 }
 export default Total;

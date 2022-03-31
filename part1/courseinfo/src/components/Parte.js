@@ -1,9 +1,10 @@
 import React from 'react'
 
 function Parte(props) {
+  
   return (
      <p>
-        {props.parte} {props.excersise}
+        {props.parte}:  {props.exercises}
     </p>
   )
 }
