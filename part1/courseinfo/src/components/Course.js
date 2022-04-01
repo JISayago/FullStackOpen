@@ -4,6 +4,7 @@ import Content from './Content'
 import Total from './Total'
 
  const Course = (props) =>  {
+   console.log("curso",props)
    const course = props.course
   return (
     <div>
