@@ -3,7 +3,7 @@ import React from 'react'
 function Country(props) {
     const { data } = props
     return (
-        <h1>{ data.name.common}</h1>
+        <h2>{ data.name.common}</h2>
 )
 }
 export default Country
