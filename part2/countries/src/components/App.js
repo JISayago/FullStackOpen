@@ -7,34 +7,22 @@ function App() {
     const [search, setSearch] = useState()
     const [searchList, setSearchList] = useState([])
     
-
-    
     const peticionGet = async () => {
         await axios
         .get('https://restcountries.com/v3.1/all')
         .then(response=>{
-            console.log('promise fullfilled')
             setCountries(response.data)
         }).catch(error=>{
-          console.log(error);
         })
-      }
-    console.log('render', countries.length, 'countries')
+    }
    
     const handleSearch = (e) => {
         setSearch(e.target.value)
         filtro(e.target.value)
     }
     const filtro = (searchedValue) => {
-        let answer = countries.filter((c) => {
-            if (c.name.common.toString().toLowerCase().includes(searchedValue.toLowerCase())) {
-                return c;
-            }
-            return c
-        });
-        setSearchList(answer)
-     
-        console.log(searchList)
+        let answer = countries.filter(c => c.name.common.toString().toLowerCase().includes(searchedValue.toLowerCase()));
+        setSearchList(answer)     
     }
     useEffect(() => {
         peticionGet();
@@ -47,8 +35,8 @@ function App() {
                 {
                     searchList.length > 10 ?
                     <h2>too many results, please continue writting</h2> :                    
-                        searchList.map((x) => <Country data={x}/>)
-                }  
+                        searchList.map((x) => <Country data={x} unico={searchList.length === 1 ? true : false} />)
+                    }  
             </div>
       </div>
   )
