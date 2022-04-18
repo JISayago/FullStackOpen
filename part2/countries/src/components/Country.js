@@ -1,28 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
+import CountryData from './CountryData'
 
 function Country(props) {
     const { data, unico } = props
-    const languages = data.languages
- 
+    const [show,setShow] = useState(false)
+    const handleClick = () =>
+    {
+        setShow(!show)
+       return  console.log(show)
+    }
     return (
         unico ? 
-            <div>         
-                <h1>{data.name.common}</h1>
-                <p>capital: {data.capital}</p>
-                <p>population: { data.population}</p>
-                <h2><strong>languages</strong></h2>
-                <ul>
-                    {
-                        Object.getOwnPropertyNames(languages)
-                        .map(lang => <li key={lang}>{languages[lang]}</li>)
-                    }
-                    </ul>
-                <h1>
-                    {data.flag}
-                </h1>
-            </div>
+            <CountryData data={ data } />
             :
-            <h1>{data.name.common}</h1>
+            <div>            
+                <h5>{data.name.common}<button onClick={handleClick}>show</button></h5>
+                {show ?
+                    <CountryData data={data} /> :
+                    <></>
+                }
+            </div>
     )
 }
 export default Country
