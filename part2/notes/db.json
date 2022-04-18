@@ -20,9 +20,21 @@
     },
     {
       "id": 4,
-      "content": "prueba bd",
+      "content": "Prueba BD",
       "date": "2022-04-7T13:20:14.298Z",
       "important": true
+    },
+    {
+      "content": "Nota nueva para probar axios post",
+      "date": "2022-04-18T15:15:26.215Z",
+      "important": false,
+      "id": 5
+    },
+    {
+      "content": "Extra de axios post",
+      "date": "2022-04-18T15:21:15.187Z",
+      "important": true,
+      "id": 6
     }
   ]
 }
