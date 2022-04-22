@@ -1,9 +1,8 @@
 import React from 'react'
 
-function TheNumber(props) {
-  const { name, number } = props
+function TheNumber({name , number , del}) {
   return (
-      <p>{name} { number}</p>
+      <p>{name} {number}<button onClick = {del}>X</button></p>
   )
 }
 export default TheNumber;
