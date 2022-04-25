@@ -7,18 +7,13 @@
     },
     {
       "name": "Franco Soldano",
-      "number": "002-345-678",
+      "number": "123",
       "id": 2
     },
     {
       "name": "Jose Basualdo",
       "number": "003-456-789",
       "id": 3
-    },
-    {
-      "name": "Franco asdasdasd",
-      "number": "123123",
-      "id": 4
     }
   ]
 }

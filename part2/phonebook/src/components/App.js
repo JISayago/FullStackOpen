@@ -22,11 +22,12 @@ const App = function () {
     const [newNumber, setNewNumber] = useState("")
     const [search,setSearch] = useState("")
     
-    const existe = (newPerson) => {
+    const alreadyExist = (newPerson) => {
         const personEdit = persons.find(p => p.name === newPerson.name) 
-        const estado = personEdit === undefined ? -1 : personEdit.id
-        return estado
+        const exist = personEdit === undefined ? -1 : personEdit.id
+        return exist
     }
+
     const update = (id, newPerson) => {
         const person = persons.find(p => p.id === id)
         const changedPerson = { ...person, number: newPerson.number }
@@ -35,6 +36,7 @@ const App = function () {
                 setPersons(persons.map(p => p.id !== id ?
                     p :
                     returnedPerson))
+                    
             })
             .catch(error => {
                 alert(`${changedPerson.name}, can´t be found`)
@@ -47,8 +49,7 @@ const App = function () {
         .create(newPerson)
         .then(returnedPerson => {
             setPersons(persons.concat(returnedPerson))
-            setNewName(" ")
-            setNewNumber(" ")
+            
            })
     }
     const addOrUpdatePerson = (e) => {
@@ -57,11 +58,14 @@ const App = function () {
             name: newName,
             number: newNumber
         }
-        const id = existe(newPerson)
+        const id = alreadyExist(newPerson)
 
         id !== -1 ?
-           ask(newPerson,id) :
-            addPerson(newPerson)
+        ask(newPerson,id) :
+        addPerson(newPerson)
+        
+        setNewName(" ")
+        setNewNumber(" ")
         
     }
 
